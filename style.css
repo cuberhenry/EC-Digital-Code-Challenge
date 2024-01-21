@@ -1,0 +1,6 @@
+/* Style for error comments */
+.error {
+    color: red;
+    display: none;
+    margin: 0;
+}

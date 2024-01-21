@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <!-- Attach the style and script -->
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    
+    <form id="form" onsubmit="validate(); return false">
+        <!-- Name, which should be at least three characters -->
+        <label for="name">Name:</label>
+        <br />
+        <input type="text" id="name" name="name" required />
+        <p id="nameErr" class="error">Name must be at least 3 characters</p>
+        <br /><br />
+
+        <!-- Email, following normal email requirements -->
+        <label for="email">Email:</label>
+        <br />
+        <input type="email" id="email" name="email" required />
+        <p id="emailErr" class="error">Email must meet email requirements</p>
+        <br /><br />
+
+        <!-- Phone number, submitted in dash format -->
+        <label for="phone">Phone Number:</label>
+        <br />
+        <input type="tel" id="phone" name="phone" maxlength="12" required />
+        <p id="phoneErr" class="error">Phone must match XXX-XXX-XXXX</p>
+        <br /><br />
+
+        <!-- Country, only one selectable between the US and Canada -->
+        <p style="margin: 0;">Country:</p>
+        <input type="radio" id="usa" name="country" value="US" required 
+            onclick="subCountry()"/>
+        <label for="usa">United States</label>
+        <br />
+        <input type="radio" id="can" name="country" value="Canada" 
+            onclick="subCountry()"/>
+        <label for="can">Canada</label>
+        <br /><br />
+
+        <!-- State drop down menu, only visible when US is selected -->
+        <div id="state" style="display: none;">
+            <label for="stateSelect">State:</label>
+            <br />
+            <select id="stateSelect" name="stateSelect">
+                <option selected disabled hidden value="">Choose one</option>
+                <option value="Alabama">Alabama</option>
+                <option value="Alaska">Alaska</option>
+                <option value="Arizona">Arizona</option>
+                <option value="Arkansas">Arkansas</option>
+                <option value="California">California</option>
+                <option value="Colorado">Colorado</option>
+                <option value="Connecticut">Connecticut</option>
+                <option value="Delaware">Delaware</option>
+                <option value="Florida">Florida</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Hawaii">Hawaii</option>
+                <option value="Idaho">Idaho</option>
+                <option value="Illinois">Illinois</option>
+                <option value="Indiana">Indiana</option>
+                <option value="Iowa">Iowa</option>
+                <option value="Kansas">Kansas</option>
+                <option value="Kentucky">Kentucky</option>
+                <option value="Louisiana">Louisiana</option>
+                <option value="Maine">Maine</option>
+                <option value="Maryland">Maryland</option>
+                <option value="Massachusetts">Massachusetts</option>
+                <option value="Michigan">Michigan</option>
+                <option value="Minnesota">Minnesota</option>
+                <option value="Mississippi">Mississippi</option>
+                <option value="Missouri">Missouri</option>
+                <option value="Montana">Montana</option>
+                <option value="Nebraska">Nebraska</option>
+                <option value="Nevada">Nevada</option>
+                <option value="New Hampshire">New Hampshire</option>
+                <option value="New Jersey">New Jersey</option>
+                <option value="New Mexico">New Mexico</option>
+                <option value="New York">New York</option>
+                <option value="North Carolina">North Carolina</option>
+                <option value="North Dakota">North Dakota</option>
+                <option value="Ohio">Ohio</option>
+                <option value="Oklahoma">Oklahoma</option>
+                <option value="Oregon">Oregon</option>
+                <option value="Pennsylvania">Pennsylvania</option>
+                <option value="Rhode Island">Rhode Island</option>
+                <option value="South Carolina">South Carolina</option>
+                <option value="South Dakota">South Dakota</option>
+                <option value="Tennessee">Tennessee</option>
+                <option value="Texas">Texas</option>
+                <option value="Utah">Utah</option>
+                <option value="Vermont">Vermont</option>
+                <option value="Virginia">Virginia</option>
+                <option value="Washington">Washington</option>
+                <option value="West Virginia">West Virginia</option>
+                <option value="Wisconsin">Wisconsin</option>
+                <option value="Wyoming">Wyoming</option>
+            </select>
+            <br /><br />
+        </div>
+
+        <!-- Province drop down menu, only visible when Canada is selected -->
+        <div id="province" style="display: none;">
+            <label for="provSelect">Province:</label>
+            <br />
+            <select id="provSelect" name="provSelect">
+                <option selected disabled hidden value="">Choose one</option>
+                <option value="Alberta">Alberta</option>
+                <option value="British Columbia">British Columbia</option>
+                <option value="Manitoba">Manitoba</option>
+                <option value="New Brunswick">New Brunswick</option>
+                <option value="Newfoundland and Labrador">Newfoundland and Labrador</option>
+                <option value="Nova Scotia">Nova Scotia</option>
+                <option value="Northwest Territories">Northwest Territories</option>
+                <option value="Nunavut">Nunavut</option>
+                <option value="Ontario">Ontario</option>
+                <option value="Prince Edward Island">Prince Edward Island</option>
+                <option value="Quebec">Quebec</option>
+                <option value="Saskatchewan">Saskatchewan</option>
+                <option value="Yukon">Yukon</option>
+            </select>
+            <br /><br />
+        </div>
+
+        <!-- Details, no requirements beyond any response -->
+        <label for="details">Additional Details:</label>
+        <br />
+        <textarea id="details" name="details" required 
+            rows="10" cols="30"></textarea>
+        <br /><br />
+
+        <!-- Submit button -->
+        <input type="submit" />
+    </form>
+
+    <!-- The results of the form submission, beginning empty -->
+    <div id="results"></div>
+</html>
